@@ -5,24 +5,20 @@
   </div>
 </div> 
 <div class="container mt-3">
-   
-    <%= link_to 'Return to lists', lists_path, class:"btn btn-success" %>
-
-      <% @list.movies.each do |movie| %>
-      <div class="row">
-       <% bookmark = Bookmark.find_by(movie: movie, list: @list) %>
-        <div class="col-4 mt-3">
-        <div class="card h-100" style="width: 18rem;">
-         <img class="card-img-top" src="<%=movie.poster_url %>" alt="Card image cap">
-         <div class="card-body"> 
-           <h5 class="card-title"><%= movie.title %></h5>
-           <p class="card-text" style="-webkit-line-clamp: 2"><%= movie.overview %></p> 
-        </div>
-          <%= link_to 'Delete this movie', bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?"}, class:"btn btn-light" %>
-         </div>
-      </div>
-      <% end %>
+ <%= link_to 'Return to lists', lists_path, class:"btn btn-success" %>
+ <div class="row">
+  <% @list.movies.each do |movie| %>
+    <% bookmark = Bookmark.find_by(movie: movie, list: @list) %>
+    <div class="col-4 mt-3">
+     <div class="card h-100" style="width: 18rem;">
+      <img class="card-img-top" src="<%=movie.poster_url %>" alt="Card image cap">
+      <div class="card-body"> 
+        <h5 class="card-title"><%= movie.title %></h5>
+        <p class="card-text" style="-webkit-line-clamp: 2"><%= movie.overview %></p> 
+     </div>
+     <%= link_to 'Delete this movie', bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?"}, class:"btn btn-light" %>
     </div>
-
-   
+   </div>
+  <% end %>
+ </div>
 </div>
