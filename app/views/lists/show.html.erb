@@ -1,0 +1,19 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i1.wp.com/www.cinefagos.es/wp-content/uploads/2020/03/cine.jpg?fit=1600%2C900&ssl=1);">
+  <div class="container">
+    <h1><strong><%= @list.name %></strong></h1>
+    <%= link_to 'Add a movie', new_list_bookmark_path(@list), class:"btn btn-primary" %>
+  </div>
+</div> 
+<div class="container">
+    <%= link_to 'Return to lists', lists_path, class:"btn btn-success" %>
+  <% @list.movies.each do |movie| %> 
+    <div class="card d-flex" style="width: 18rem;">
+      <img class="card-img-top" src="<%=movie.poster_url %>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= movie.title %></h5>
+        <p class="card-text"><%= movie.overview %></p>
+        <%= link_to 'delete this movie', bookmark_path(movie), method: :delete, data: { confirm: "Are you sure?"}, class:"btn btn-light" %>
+      </div>
+    </div>
+  <% end %>
+</div>

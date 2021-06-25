@@ -1,0 +1,18 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i1.wp.com/www.cinefagos.es/wp-content/uploads/2020/03/cine.jpg?fit=1600%2C900&ssl=1);">
+  <div class="container">
+    <h1><strong>List of movies</strong>!</h1>
+    <%= link_to 'Add a new list', new_list_path, class:"btn btn-info" %>
+  </div>
+</div>
+
+<div class="container">
+
+  <% @lists.each do |list| %>
+  <div class="card-category w-50" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://4kwallpapers.com/images/walls/thumbs_2t/3104.jpg)">
+    <%= list.name %>
+  </div>
+  <%= link_to 'See details', list_path(list), class:"btn btn-primary btn-show-details" %>
+  <% end %>
+
+
+</div>
