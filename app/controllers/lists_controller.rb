@@ -13,7 +13,11 @@ class ListsController < ApplicationController
   end
 
   def update
-
+    @list = List.find(params[:id])
+    @movie = Movie.find(params[])
+    @list.movies = @movie
+    @list.update(list_params)
+    redirect_to list_path(@list)
   end
 
   def create
