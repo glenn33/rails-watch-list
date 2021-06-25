@@ -6,14 +6,20 @@
 </div> 
 <div class="container">
     <%= link_to 'Return to lists', lists_path, class:"btn btn-success" %>
-  <% @list.movies.each do |movie| %> 
-    <div class="card d-flex" style="width: 18rem;">
-      <img class="card-img-top" src="<%=movie.poster_url %>" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%= movie.title %></h5>
-        <p class="card-text"><%= movie.overview %></p>
-        <%= link_to 'delete this movie', bookmark_path(movie), method: :delete, data: { confirm: "Are you sure?"}, class:"btn btn-light" %>
-      </div>
+   
+   <% unless @list.bookmark_ids.empty? %>
+      <% @list.movies.each do |movie| %>
+       <div class="card d-flex" style="width: 18rem;">
+        <img class="card-img-top" src="<%=movie.poster_url %>" alt="Card image cap">
+        <div class="card-body"> 
+          <h5 class="card-title"><%= movie.title %></h5>
+          <p class="card-text"><%= movie.overview %></p> 
+       </div>
+         <%= link_to 'Delete this movie', bookmark_path(@list.bookmark_ids), method: :delete, data: { confirm: "Are you sure?"}, class:"btn btn-light" %>
+      <% end %>
     </div>
-  <% end %>
+   <% else %>
+    <p>You have no bookmarks yet</p>
+   <% end %>
+   
 </div>
