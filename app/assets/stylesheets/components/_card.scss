@@ -11,14 +11,15 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 10px;
-}
-.btn-show-details {
-  background-color: rgb(228, 113, 36);
-  border: 1px solid rgb(228, 113, 36);;
+  margin: 20px 10px;
   &:hover {
-    background-color: rgb(255, 255, 255);
-    color: rgb(228, 113, 36);
-    border: 1px solid rgb(228, 113, 36);;
+   transition: all 0.2s ease-out;
+   box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+   top: -4px;
+   border: 1px solid #cccccc;
+   background-color: white;
+  }
+  a:hover {
+   text-decoration: none;
   }
 }
